@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title INPHO!
+
+    link(href="bt/css/bootstrap.min.css" rel="stylesheet")
+body(style="color:#525252")
+    div.navbar(style="text-align:center; margin-top:20px;")
+        a(href="/")
+            img(src="imgs/inphoLogoName.png" style="height:50px;")
+    div.container
+        div.row
+            div.col-md-12
+                h2(style="display:inline-block;") Oops. We messed up...
+            div.col-md-12(style="text-slign:center;")
+                div.col-md-12
+                    h3(style="font-weight:normal;") Something went wrong when inserting your page on our database...
+                    h3(style="font-weight:normal;") The error received was...
+                    p #{err}
+                    h3(style="font-weight:normal;") Would you mind trying again?
+
+
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="bt/js/bootstrap.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA74GyTpzLZVpz2Gtann2JP6F6Va6nVs5Q")
+    script(src="js/info-validation.js")

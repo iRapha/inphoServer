@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var stylus = require('stylus');
+var locations = require(__dirname + "/db/locations.js");
 
 // express config
 app.use(bodyParser.urlencoded({extended: true}));
@@ -37,7 +38,47 @@ MongoClient.connect((process.env.MONGOLAB_URI
 
     // register the page
     app.post("/registerpage", function(req, res) {
-        res.status(200).send("http://reddit.com");
+        var lat = req.body.lat;
+        var lng = req.body.lng;
+        var rds = req.body.rds;
+        if(!lat || !lng || !rds) {
+            res.redirect("/registerpage");
+            return;
+        }
+
+        var pageName = req.body.pageName;
+        var fontColor = req.body.fontColor;
+        var pageColor = req.body.pageColor;
+        var pageHTML = req.body.pageHTML;
+        if(!pageName || !pageColor || !fontColor || !pageHTML) {
+            res.render("pageinformation", {"lat": lat, "lng": lng, "rds": rds});
+            return;
+        }
+
+        var coords = [Number(lng), Number(lat)]
+        console.log(coords);
+        var page = {
+            "name": pageName,
+            "loc": {
+                "type": "Point",
+                "coordinates": coords
+            },
+            "rds": rds,
+            "pageContent": {
+                "html": pageHTML,
+                "pageColor": pageColor,
+                "fontColor": fontColor
+            }
+        }
+
+        locations.insertLocation(db, page, function(err, inserted) {
+            if (err) {
+                res.render("error", {"err": err})
+                return;
+            }
+
+            res.render("success", inserted);
+        });
     });
 
 });

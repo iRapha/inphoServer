@@ -1,0 +1,74 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title INPHO!
+
+    link(href="bt/css/bootstrap.min.css" rel="stylesheet")
+body(style="color:#525252")
+    div.navbar(style="text-align:center; margin-top:20px;")
+        a(href="/")
+            img(src="imgs/inphoLogoName.png" style="height:50px;")
+    div.container
+        div.row
+            div.col-md-12
+                h2(style="display:inline-block;") What should your customers know?
+            div.col-md-6
+                form(action="" method="POST" onsubmit="return validateBizInfo();")
+                    div.form-group
+                        br
+                        div.input-group.input-group-lg
+                            span.input-group-addon NAME
+                            input.form-control#name-input(type="text" name="pageName" placeholder="Rapha's Pasta")
+                        br
+                        div.input-group.input-group-lg
+                            span.input-group-addon FONT COLOR
+                            input.form-control#font-color-input(type="color" name="fontColor" value="#ffffff")
+                        br
+                        div.input-group.input-group-lg
+                            span.input-group-addon BACKGROUND COLOR
+                            input.form-control#page-color-input(type="color" name="pageColor" value="#000000")
+                        br
+                        div.input-group.input-group-lg
+                            span.input-group-addon HTML
+                            input.form-control#html-input(type="textarea" name="pageHTML" value="\<h3>Menu\</h3>\<ul>\<li>Caesar Salad ($6)\</li>\<li>Bruschetta ($6)\</li>\<li>Lasagna ($10)\</li>\<li>Spaghetti ($12)\</li>\<li>Pizza (8pc) ($17)\</li>\</ul>\<h3>Daily Specials\</h3>\<ul>\<li>Pizza + 2 Caesar Salad ($30)\</li>\</ul>")
+                        input#latitude-input(type="hidden" name="lat" value="#{lat}")
+                        input#longitude-input(type="hidden" name="lng" value="#{lng}")
+                        input#radius-input(type="hidden" name="rds" value="#{rds}")
+                        br
+                        div.col-md-12(style="text-align:right;")
+                            input.btn.btn-default(type="submit" name="submit" value="SUBMIT!")
+                br
+                br
+                div.row
+                    div.col-md-2
+                    div.col-md-10(style="text-align:left;")
+                        h2 More features to come!
+                        p(style="padding-left:20px;") Interactivity<br/>Location Services<br/>Integration with your ordering system, etc
+
+
+            div.col-md-6.hidden-xs(style="text-align:center;")
+                div.col-md-2.hidden-xs
+                div.col-md-10.hidden-xs
+                    div#smartphone-viewport(style="border-style:solid; border-color:#525252; border-width:1px; width:80%; height: 500px; text-align:left; background-color:#f0f0f0;")
+                        div#smartphone-navbar(style="color:#ffffff; background-color:#000000; padding-left:20px; height:65px; border-style:solid; border-width:0 0 1px 0; border-color: #525252;")
+                            h2#smartphone-page-name(style="display:inline-block;") Rapha's Pasta
+                        div#smartphone-content(style="overlow:hidden; color:#525252; padding-left:20px;")
+                            h3 Menu
+                            ul
+                                li Caesar Salad ($6)
+                                li Bruschetta ($6)
+                                li Lasagna ($10)
+                                li Spaghetti ($12)
+                                li Pizza (8pc) ($17)
+                            h3 Daily Specials
+                            ul
+                                li Pizza + 2 Caesar Salad ($30)
+
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="bt/js/bootstrap.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA74GyTpzLZVpz2Gtann2JP6F6Va6nVs5Q")
+    script(src="js/info-validation.js")
