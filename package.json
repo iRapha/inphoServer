@@ -1,0 +1,10 @@
+{
+    "name": "inpho",
+    "description": "Location-Based Information in your fingertips",
+    "version": "0.0.1",
+    "dependencies": {
+        "body-parser": "*",
+        "express": "4.x",
+        "express-session": "*"
+    }
+}
