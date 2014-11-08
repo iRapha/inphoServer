@@ -5,6 +5,9 @@
     "dependencies": {
         "body-parser": "*",
         "express": "4.x",
-        "express-session": "*"
+        "express-session": "*",
+        "mongodb": "*",
+        "stylus": "*",
+        "jade": "*"
     }
 }

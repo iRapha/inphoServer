@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title INPHO!
+
+    link(href="bt/css/bootstrap.min.css" rel="stylesheet")
+body(style="color:#525252")
+    div.navbar(style="text-align:center; margin-top:20px;")
+        img(src="imgs/inphoLogoName.png" style="height:50px;")
+    div.container
+        div.row
+            div.col-md-12
+                h4(style="display:inline-block;") Register Your Business/Event:
+                h2(style="display:inline-block;") &nbsp;Where is your location?
+                h4(style="display:inline-block;") &nbsp;Be extremely accurate
+                div#map-canvas(style="width:100%; min-height:400px;")
+        br
+        form(action="" method="POST")
+            div.form-group
+                div.row(style="text-align:center;")
+                    div.col-md-4
+                        div.input-group
+                            span.input-group-addon Latitude
+                            input.form-control#latitude-input(type="text" value="" placeholder="0.000")
+                    div.col-md-4
+                        div.input-group
+                            span.input-group-addon Longitude
+                            input.form-control#longitude-input(type="text" value="" placeholder="0.000")
+                    div.col-md-4
+                        div.input-group
+                            span.input-group-addon Radius (meters)
+                            input.form-control#radius-input(type="text" value="50" placeholder="50")
+                br
+                div.row(style="text-align:center;")
+                    div.col-md-4-offset-8
+                        div.input.btn.btn-default(type="submit") Submit
+
+    script(src="js/jquery-1.11.1.min.js")
+    script(src="bt/js/bootstrap.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA74GyTpzLZVpz2Gtann2JP6F6Va6nVs5Q")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="js/maps-integration.js")
