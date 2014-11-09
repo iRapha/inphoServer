@@ -31,6 +31,31 @@ MongoClient.connect((process.env.MONGOLAB_URI
         res.status(200).send("http://reddit.com");
     });
 
+    // get locations based on latitude and longitude
+    app.get("/locations", function(req, res) {
+        var lng = req.body.longitude;
+        var lat = req.body.latitude;
+
+        //DEBUG!!! TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+        lng = -84.320858;
+        lat = 33.7983704;
+
+        if(!lng || !lat) {
+            res.status(400).send({ "err": "We can't get locations near you without your location." });
+        } else if(Number(lng) === NaN || Number(lat) === NaN) {
+            res.status(400).send({ "err": "Longitude and Latitude have to be numbers." });
+        }
+
+        locations.getLocations(db, lng, lat, function(err, results) {
+            if(err) {
+                res.status(400).send({ "err": err });
+                return;
+            }
+
+            res.status(200).json(results);
+        })
+    });
+
     // display the registration webpage (requesting page location and info)
     app.get("/registerpage", function(req, res) {
         res.render("selectlocation", 200);
@@ -56,7 +81,6 @@ MongoClient.connect((process.env.MONGOLAB_URI
         }
 
         var coords = [Number(lng), Number(lat)]
-        console.log(coords);
         var page = {
             "name": pageName,
             "loc": {
@@ -80,5 +104,4 @@ MongoClient.connect((process.env.MONGOLAB_URI
             res.render("success", inserted);
         });
     });
-
 });
