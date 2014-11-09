@@ -25,6 +25,7 @@ function initializeMap() {
         if(radius > 1) {
             circle = new google.maps.Circle(
                 {
+                    "clickable": false,
                     "strokeColor": '#FF0000',
                     "strokeOpacity": 0.8,
                     "strokeWeight": 2,
@@ -48,6 +49,7 @@ function initializeMap() {
         if(radius > 1 && marker) {
             circle = new google.maps.Circle(
                 {
+                    "clickable": false,
                     "strokeColor": '#FF0000',
                     "strokeOpacity": 0.8,
                     "strokeWeight": 2,
