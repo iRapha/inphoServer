@@ -5,24 +5,6 @@ var insertLocation = function(db, page, cb) {
 }
 
 var getLocations = function(db, lng, lat, cb) {
-    // db.command(
-    //     {
-    //         "geoNear": "locations.loc",
-    //         "near" : {
-    //             "$geometry": {"coordinates": [ Number(lng), Number(lat) ] },
-    //             "$maxDistance": 5000
-    //         },
-    //         "spherical": true
-    //     },
-    //     function(err, results) {
-    //         if (err) {
-    //             console.log(err);
-    //             return
-    //         }
-    //
-    //         console.log(results);
-    //     }
-    // );
     db.collection("locations").find({
             "loc": {
                 "$near" : {
@@ -47,8 +29,6 @@ var getLocations = function(db, lng, lat, cb) {
                 var lng2 = Number(results[i].loc.coordinates[0]);
                 var lat2 = Number(results[i].loc.coordinates[1]);
                 var radius = Number(results[i].rds);
-
-                console.log(getDistanceInMeters(lng, lat, lng2, lat2));
 
                 if(getDistanceInMeters(lng, lat, lng2, lat2) <= radius) {
                     inRadius.push(results.shift());

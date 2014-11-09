@@ -7,8 +7,8 @@ var stylus = require('stylus');
 var locations = require(__dirname + "/db/locations.js");
 
 // express config
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.listen(process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -33,27 +33,36 @@ MongoClient.connect((process.env.MONGOLAB_URI
 
     // get locations based on latitude and longitude
     app.post("/locations", function(req, res) {
-        var lng = req.body.longitude;
-        var lat = req.body.latitude;
+        var result = "";
 
-        //DEBUG!!! TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-        lng = -84.320858;
-        lat = 33.7983704;
+        req.on("data", function(chunk) {
+            result += chunk;
+        });
 
-        if(!lng || !lat) {
-            res.status(400).send({ "err": "We can't get locations near you without your location." });
-        } else if(Number(lng) === NaN || Number(lat) === NaN) {
-            res.status(400).send({ "err": "Longitude and Latitude have to be numbers." });
-        }
+        req.on("end", function() {
+            var coords = JSON.parse(result);
+            var lng = Number(coords.longitude);
+            var lat = Number(coords.latitude);
 
-        locations.getLocations(db, Number(lng), Number(lat), function(err, results) {
-            if(err) {
-                res.status(400).send({ "err": err });
-                return;
+            //DEBUG!!! TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+            // lng = -84.320858;
+            // lat = 33.7983704;
+
+            if(!lng || !lat) {
+                res.status(400).send({ "err": "We can't get locations near you without your location." });
+            } else if(Number(lng) === NaN || Number(lat) === NaN) {
+                res.status(400).send({ "err": "Longitude and Latitude have to be numbers." });
             }
 
-            res.status(200).json(results);
-        })
+            locations.getLocations(db, Number(lng), Number(lat), function(err, results) {
+                if(err) {
+                    res.status(400).send({ "err": err });
+                    return;
+                }
+
+                res.status(200).json(results);
+            });
+        });
     });
 
     // display the registration webpage (requesting page location and info)
