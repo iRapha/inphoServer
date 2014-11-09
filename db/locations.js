@@ -33,6 +33,7 @@ var getLocations = function(db, lng, lat, cb) {
         }).toArray(function(err, results) {
             if (err) {
                 cb(err);
+                return;
             }
 
             if(results.length < 1) {

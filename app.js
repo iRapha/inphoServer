@@ -32,7 +32,7 @@ MongoClient.connect((process.env.MONGOLAB_URI
     });
 
     // get locations based on latitude and longitude
-    app.get("/locations", function(req, res) {
+    app.post("/locations", function(req, res) {
         var lng = req.body.longitude;
         var lat = req.body.latitude;
 
@@ -103,5 +103,10 @@ MongoClient.connect((process.env.MONGOLAB_URI
 
             res.render("success", inserted);
         });
+    });
+
+    //get and display nearby locations
+    app.get("/nearby", function(req, res) {
+        res.render("nearby", 200);
     });
 });
