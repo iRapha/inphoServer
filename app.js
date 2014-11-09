@@ -46,7 +46,7 @@ MongoClient.connect((process.env.MONGOLAB_URI
             res.status(400).send({ "err": "Longitude and Latitude have to be numbers." });
         }
 
-        locations.getLocations(db, lng, lat, function(err, results) {
+        locations.getLocations(db, Number(lng), Number(lat), function(err, results) {
             if(err) {
                 res.status(400).send({ "err": err });
                 return;
