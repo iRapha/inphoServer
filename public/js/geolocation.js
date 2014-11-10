@@ -53,7 +53,8 @@ function getNearbyPages(lng, lat) {
 
     httpRequest.onreadystatechange = processRequest;
 
-    httpRequest.open('POST', '/locations');
+    httpRequest.open('POST', 'www.inphoapp.com/locations');
+    httpRequest.open('POST', '/locations'); // DEBUG ONLY
     httpRequest.setRequestHeader('Content-Type', 'text/json');
     httpRequest.send('{\"longitude\":'+lng+', \"latitude\":'+lat+"}");
 }
