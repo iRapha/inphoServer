@@ -78,8 +78,7 @@ function renderPages(result) {
             $("#loading-location-message").find('h2').text("We can't place you in a specific location...");
             $("#loading-location-message").find('h3').text("These are some of the businesses near you.");
 
-            for(var i = 0; i < result.otherNearby.legth; i++) {
-                console.log("<div class='col-md-12' id='page-item"+i+"' style='width:100%; color:"+page.pageContent.fontColor+"; background-color:"+page.pageContent.pageColor+";'></div>");
+            for(var i = 0; i < result.otherNearby.length; i++) {
                 var page = result.otherNearby[i];
                 $("#page-list").append("<div class='col-md-12' id='page-item"+i+"' style='width:100%; color:"+page.pageContent.fontColor+"; background-color:"+page.pageContent.pageColor+";'></div>");
                 $("#page-item"+i).append("<h1>"+page.name+"</h1>");
