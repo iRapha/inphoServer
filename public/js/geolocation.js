@@ -38,7 +38,8 @@ function getNearbyPages(lng, lat) {
             } else {
                 //nooooooo
                 $("#loading-location-message").find('h2').text('Oops! We\'ve messed up!');
-                $("#loading-location-message").find('h3').text('There was an error retrieving pages near you! :( ' + httpRequest.status + " " + httpRequest.responseText);
+                $("#loading-location-message").find('h3').text('There was an error retrieving pages near you! :( ');
+                console.log(httpRequest.responseText);
             }
 
         }

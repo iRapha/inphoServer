@@ -1,6 +1,6 @@
 var insertLocation = function(db, page, cb) {
     //make sure the database has the following setting:
-    //db.locations.ensureIndex( { "loc.coordinates" : "2dsphere" } )
+    //db.locations.ensureIndex( { "loc" : "2dsphere" } )
     db.collection("locations").insert(page, cb);
 }
 

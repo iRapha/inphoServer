@@ -44,10 +44,6 @@ MongoClient.connect((process.env.MONGOLAB_URI
             var lng = Number(coords.longitude);
             var lat = Number(coords.latitude);
 
-            //DEBUG!!! TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-            // lng = -84.320858;
-            // lat = 33.7983704;
-
             if(!lng || !lat) {
                 res.status(400).send({ "err": "We can't get locations near you without your location." });
             } else if(Number(lng) === NaN || Number(lat) === NaN) {
@@ -56,10 +52,6 @@ MongoClient.connect((process.env.MONGOLAB_URI
 
             locations.getLocations(db, Number(lng), Number(lat), function(err, results) {
                 if(err) {
-                    err.info = {
-                        "lng": lng,
-                        "lat": lat
-                    }
                     res.status(400).send({ "err": err });
                     return;
                 }
