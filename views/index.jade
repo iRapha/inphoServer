@@ -7,24 +7,24 @@ head
     title INPHO!
 
     link(href="bt/css/bootstrap.min.css" rel="stylesheet")
-    <link rel="shortcut icon" href="imgs/favicons/favicon.ico">
-    <link rel="apple-touch-icon" sizes="57x57" href="imgs/favicons/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="imgs/favicons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="imgs/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="imgs/favicons/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="imgs/favicons/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="imgs/favicons/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="imgs/favicons/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="imgs/favicons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="imgs/favicons/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="imgs/favicons/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="imgs/favicons/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="imgs/favicons/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="imgs/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="imgs/favicons/favicon-32x32.png" sizes="32x32">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="msapplication-TileImage" content="imgs/favicons/mstile-144x144.png">
-    <meta name="msapplication-config" content="imgs/favicons/browserconfig.xml">
+    link(rel="shortcut icon" href="imgs/favicons/favicon.ico")
+    link(rel="apple-touch-icon" sizes="57x57" href="imgs/favicons/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon" sizes="114x114" href="imgs/favicons/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon" sizes="72x72" href="imgs/favicons/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon" sizes="144x144" href="imgs/favicons/apple-touch-icon-144x144.png")
+    link(rel="apple-touch-icon" sizes="60x60" href="imgs/favicons/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon" sizes="120x120" href="imgs/favicons/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon" sizes="76x76" href="imgs/favicons/apple-touch-icon-76x76.png")
+    link(rel="apple-touch-icon" sizes="152x152" href="imgs/favicons/apple-touch-icon-152x152.png")
+    link(rel="apple-touch-icon" sizes="180x180" href="imgs/favicons/apple-touch-icon-180x180.png")
+    link(rel="icon" type="image/png" href="imgs/favicons/favicon-192x192.png" sizes="192x192")
+    link(rel="icon" type="image/png" href="imgs/favicons/favicon-160x160.png" sizes="160x160")
+    link(rel="icon" type="image/png" href="imgs/favicons/favicon-96x96.png" sizes="96x96")
+    link(rel="icon" type="image/png" href="imgs/favicons/favicon-16x16.png" sizes="16x16")
+    link(rel="icon" type="image/png" href="imgs/favicons/favicon-32x32.png" sizes="32x32")
+    meta(name="msapplication-TileColor" content="#00aba9")
+    meta(name="msapplication-TileImage" content="imgs/favicons/mstile-144x144.png")
+    meta(name="msapplication-config" content="imgs/favicons/browserconfig.xml")
 body(style="color:#525252")
     div.navbar(style="text-align:center; margin-top:40px;")
         img(src="imgs/inphoLogoName.png" style="height:50px;")
@@ -35,20 +35,22 @@ body(style="color:#525252")
             div.col-md-8
                 h4(style="font-weight:normal;") INPHO is the next best app for location-aware information of any kind. Walk into a place with available information and it is instantly available on the app.
         br
+        div.row(style="text-align:center;")
+            div.col-md-8.col-md-offset-2
+                div.embed-responsive.embed-responsive-16by9
+                    iframe(width="560" height="315" src="//www.youtube.com/embed/Gm_s89MVHDM" frameborder="0" allowfullscreen)
+        br
         div.row
             div.col-md-4(style="text-align:center;")
                 h2 For Restaurants
-                br
                 h4(style="font-weight:normal;") Get into a restaurant and open the app to instantly view the menu. Scan the QR code on the table to place your order right from your phone.
                 h4(style="font-weight:normal;") Restaurant owners can customize what is displayed on their business locations. Simply click the register button below and begin creating your template.
             div.col-md-4(style="text-align:center;")
                 h2 For Events
-                br
                 h4(style="font-weight:normal;") At a concert? Open the app to view the drink selection at the bar. Then get directions to the nearest bathroom and a list of upcoming performers.
                 h4(style="font-weight:normal;") At an amusement park? Open the app and find a map of the attractions and places of interest.
             div.col-md-4(style="text-align:center;")
                 h2 For Your Customers!
-                br
                 h4(style="font-weight:normal;") Run a store/service/event/whatever? Want to enable these amazing features on it too?
                 h4(style="font-weight:normal;") Just click the button below and see how easy and fast it is to let your customers use information about your business when they most need it: when they're there.
                 small note that some features may require a subscription
@@ -58,6 +60,7 @@ body(style="color:#525252")
             div.col-md-12(style="text-align:center;")
                 a(href="/registerpage")
                     button.btn.btn-default.btn-lg REGISTER YOUR BUSINESS<br/>WITH INPHO TODAY!
+        br
 
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script(src="bt/js/bootstrap.min.js")
