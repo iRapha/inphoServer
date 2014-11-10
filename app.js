@@ -56,6 +56,10 @@ MongoClient.connect((process.env.MONGOLAB_URI
 
             locations.getLocations(db, Number(lng), Number(lat), function(err, results) {
                 if(err) {
+                    err.info = {
+                        "lng": lng,
+                        "lat": lat
+                    }
                     res.status(400).send({ "err": err });
                     return;
                 }
