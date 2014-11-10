@@ -57,12 +57,14 @@ function getNearbyPages(lng, lat) {
     httpRequest.onreadystatechange = processRequest;
 
     httpRequest.open('POST', 'www.inphoapp.com/locations');
-    httpRequest.open('POST', '/locations'); // DEBUG ONLY
+    // httpRequest.open('POST', '/locations'); // DEBUG ONLY
     httpRequest.setRequestHeader('Content-Type', 'text/json');
     httpRequest.send('{\"longitude\":'+lng+', \"latitude\":'+lat+"}");
 }
 
 function renderPages(result) {
+    console.log(result);
+    
     if(!result) {
         $("#loading-location-message").find('h2').text('Oops. We messed up!');
         $("#loading-location-message").find('h3').text('Something went wrong while fetching the pages near you...');
