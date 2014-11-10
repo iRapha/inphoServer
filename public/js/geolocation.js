@@ -73,6 +73,8 @@ function renderPages(result) {
     }
 
     if(result.inRadius.length < 1) {
+        console.log(result.otherNearby);
+        console.log(result.otherNearby.length);
         if(result.otherNearby.length >= 1) {
             $("#loading-location-message").find('h2').text("We can't place you in a specific location...");
             $("#loading-location-message").find('h3').text("These are some of the businesses near you.");
