@@ -14,6 +14,8 @@ function findUserLocation() {
         $("#loading-location-message").find('h2').text('Please wait');
         $("#loading-location-message").find('h3').text('while we fetch pages near you.');
 
+        console.log("["+longitude+", "+latitude+"]");
+
         getNearbyPages(longitude, latitude);
     }
 
